@@ -1,0 +1,47 @@
+<resources>
+    <string name="app_name">Manga Collection</string>
+
+    <!--navigation titles -->
+    <string name="title_home">Home</string>
+    <string name="title_favorites">Favorites</string>
+    <string name="title_surprise">Surprise me</string>
+    <string name="title_next">Next manga</string>
+    <string name="title_previous">Previous manga</string>
+
+    <!-- main activity -->
+    <string name="trending_manga_poster_cont_desc">Place of the poster of the trending manga</string>
+    <string name="login">Login</string>
+    <string name="logout">Log out</string>
+    <string name="logged_in_with_title">You are logged as: \u0020%s</string>
+    <!-- detail activity -->
+    <string name="character_avatar_cont_desc">Place an image of the character</string>
+
+    <!-- Widget -->
+    <string name="widget_cont_desc">TextView to show your favorites in the Widget</string>
+    <string name="yourFavorite">Your favorites are: \n</string>
+
+    <!-- error and Toast string -->
+    <string name="error_on_authentication">Authentication failed</string>
+    <string name="error_on_login">Sign in failed</string>
+    <string name="error_on_no_connection">No internet connection!</string>
+    <string name="error_on_invalid_input">Not a valid input</string>
+    <string name="error_on_no_result_from_server">No result in answer from server</string>
+    <string name="error_on_no_result_from_server2">The manga you\'re looking for is being printed </string>
+    <string name="login_to_save_favorite">Please login to save a favorite</string>
+    <string name="please_log_in"> Not logged in, please log in on the home screen</string>
+
+    <string name="search_hint">Enter title</string>
+    <string name="title_go">Go</string>
+    <string name="title_search">Search for a manga</string>
+    <string name="manga_poster_cont_desc">Place to sse maga poster</string>
+    <string name="character_list_label">Characters List:</string>
+    <string name="fav_button_cont_desc">Button to declare manga as favorite</string>
+    <string name="synopsisLabel">Synopsis:</string>
+    <string name="numberOfVolumesLabel">Number of volumes</string>
+    <string name="titleLabel">Title:</string>
+    <string name="details_toolbar_title">Manga details</string>
+    <string name="title_trending_default">Most popular Manga:</string>
+
+
+
+</resources>
