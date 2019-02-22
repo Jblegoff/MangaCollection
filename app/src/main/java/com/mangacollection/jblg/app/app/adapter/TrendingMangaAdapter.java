@@ -37,7 +37,7 @@ public class TrendingMangaAdapter extends RecyclerView.Adapter <TrendingMangaAda
         private TrendingResponse trendingMangaResponse;
         private ProgressBar progressBar;
 
-        public TrendingMangaAdapter(Context context, ProgressBar progressBar, TrendingResponse trendingAnimesResponse){
+        public TrendingMangaAdapter(Context context, ProgressBar progressBar, TrendingResponse trendingMangaResponse){
             this.trendingMangaResponse = trendingMangaResponse;
             this.progressBar = progressBar;
             this.myContext = context;

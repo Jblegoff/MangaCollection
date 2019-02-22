@@ -10,8 +10,15 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import java.util.List;
 
+
 public class TrendingResponse implements Parcelable {
     public final static Parcelable.Creator<TrendingResponse> CREATOR=new Creator<TrendingResponse>() {
+
+        @SuppressWarnings({
+                "unchecked"
+        }
+        )
+
         @Override
         public TrendingResponse createFromParcel(Parcel source) {
             return new TrendingResponse(source);
@@ -22,22 +29,22 @@ public class TrendingResponse implements Parcelable {
             return new TrendingResponse[size];
         }
     };
-    @SerializedName("requesthash")
+
+    @SerializedName("request_hash")
     @Expose
     private String requestHash;
-    @SerializedName("requestcache")
+    @SerializedName("request_cache")
     @Expose
     private Boolean requestCache;
     @SerializedName("top")
     @Expose
     private List<Top> top=null;
 
-    private TrendingResponse(Parcel source) {
+    public TrendingResponse(Parcel source){
         this.requestHash=((String)source.readValue(String.class.getClassLoader()));
-        this.requestCache=((Boolean) source.readValue(Boolean.class.getClassLoader()));
-        source.readList(this.top,(Top.class.getClassLoader()));
+        this.requestCache=((Boolean) source.readValue(String.class.getClassLoader()));
+        source.readList(this.top,(com.mangacollection.jblg.app.app.models.manga.trending.Top.class.getClassLoader()));
     }
-    public TrendingResponse(){}
     public String getRequestHash(){
         return requestHash;
     }
@@ -52,15 +59,12 @@ public class TrendingResponse implements Parcelable {
     public void setRequestCache(Boolean requestCache) {
         this.requestCache = requestCache;
     }
-
-    public List<Top> getTop() {
-        return top;
-    }
-
     public void setTop(List<Top> top) {
         this.top = top;
     }
-
+    public List<Top> getTop() {
+        return top;
+    }
 
     @Override
     public String toString() {
@@ -68,14 +72,14 @@ public class TrendingResponse implements Parcelable {
     }
 
     @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeValue(requestHash);
         dest.writeValue(requestCache);
         dest.writeList(top);
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
     }
 }

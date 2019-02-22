@@ -114,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
             recyclerViewState = savedInstanceState.getParcelable("TRENDING_LIST_STATE");
         }
 
-        setSupportActionBar(toolbar);
+        //setSupportActionBar(toolbar);
         invalidateOptionsMenu();
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
