@@ -14,7 +14,7 @@ public interface MangaAPIInterface {
     @GET("http://api.jikan.moe/v3/top/manga/1/bypopularity")
     Call<TrendingResponse> getTrendingManga();
 
-    @GET("http://api.jikan.moe/v3/manga/1/characters")
+    @GET("http://api.jikan.moe/v3/manga/{malId}/characters")
     Call<MangaResponse> getMangaByID(@Path("malId") int id);
 
     @GET("http://api.jikan.moe/v3/search/manga")

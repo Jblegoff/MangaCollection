@@ -20,12 +20,12 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="12dp"
-            android:layout_marginTop="5dp"
             android:layout_marginStart="45dp"
+            android:layout_marginTop="5dp"
             android:fontFamily="serif"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/posterIV"
-            app:layout_constraintTop_toBottomOf="@+id/numberOfVolumesTV"/>
+            app:layout_constraintTop_toBottomOf="@+id/titleLabelTV"/>
 
         <TextView
             android:id="@+id/synopsisTV"
@@ -64,7 +64,7 @@
             android:id="@+id/titleLabelTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="32dp"
             android:layout_marginTop="8dp"
             android:fontFamily="sans-serif"
             android:text="@string/titleLabel"
@@ -111,12 +111,12 @@
             android:id="@+id/charactersRV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="12dp"
             android:layout_marginStart="12dp"
-            android:layout_marginTop="12dp"
-            android:paddingEnd="24dp"
+            android:layout_marginEnd="12dp"
             android:paddingStart="24dp"
+            android:paddingEnd="24dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/characterDetailsLabelTV" />
 
@@ -139,11 +139,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
+            android:elevation="2dp"
             app:layout_constraintBottom_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:elevation="2dp" />
+            app:layout_constraintVertical_bias="0.0" />
         
     </android.support.constraint.ConstraintLayout>
 </ScrollView>

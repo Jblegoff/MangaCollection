@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.mangacollection.jblg.myapplication.R;
+import com.mangacollection.jblg.app.R;
 
 import java.util.List;
 

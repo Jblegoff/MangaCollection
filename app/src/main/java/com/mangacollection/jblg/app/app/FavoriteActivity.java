@@ -26,7 +26,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.mangacollection.jblg.app.app.adapter.FavoriteAdapter;
 import com.mangacollection.jblg.app.app.models.manga.Favorite;
-import com.mangacollection.jblg.myapplication.R;
+import com.mangacollection.jblg.app.R;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -43,7 +43,7 @@ import com.mangacollection.jblg.app.app.models.manga.TempEnumForManga;
 import com.mangacollection.jblg.app.app.models.manga.manga.MangaResponse;
 import com.mangacollection.jblg.app.app.models.manga.search.SearchResponse;
 import com.mangacollection.jblg.app.app.models.manga.trending.TrendingResponse;
-import com.mangacollection.jblg.myapplication.R;
+import com.mangacollection.jblg.app.R;
 
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -288,7 +288,6 @@ public class MainActivity extends AppCompatActivity {
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             try {
                 GoogleSignInAccount account = task.getResult(ApiException.class);
-                assert account != null;
                 authWithGoogleThroughFirebase(account);
             } catch (ApiException e) {
                 Log.e("TEST", getString(R.string.error_on_login), e);

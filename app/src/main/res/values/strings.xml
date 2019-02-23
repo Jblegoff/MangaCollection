@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Manga Collection</string>
+    <string name="app_name" translatable="false">Manga Collection</string>
 
     <!--navigation titles -->
     <string name="title_home">Home</string>
@@ -37,7 +37,7 @@
     <string name="character_list_label">Characters List:</string>
     <string name="fav_button_cont_desc">Button to declare manga as favorite</string>
     <string name="synopsisLabel">Synopsis:</string>
-    <string name="numberOfVolumesLabel">Number of volumes</string>
+    <string name="numberOfVolumesLabel">Volumes</string>
     <string name="titleLabel">Title:</string>
     <string name="details_toolbar_title">Manga details</string>
     <string name="title_trending_default">Most popular Manga:</string>

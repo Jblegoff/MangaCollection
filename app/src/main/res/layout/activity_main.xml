@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+            app:popupTheme="@style/AppTheme.NoActionBar" />-
 
     </android.support.design.widget.AppBarLayout>
 
@@ -139,7 +139,7 @@
     <ProgressBar
         android:id="@+id/loading_indicator"
         style="?android:progressBarStyleLarge"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="center"
         app:layout_constraintBottom_toTopOf="@id/staticSearchTV"

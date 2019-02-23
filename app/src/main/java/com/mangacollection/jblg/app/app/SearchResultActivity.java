@@ -11,9 +11,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
 import android.widget.ProgressBar;
 
+import com.mangacollection.jblg.app.R;
 import com.mangacollection.jblg.app.app.adapter.SearchResultAdapter;
 import com.mangacollection.jblg.app.app.models.manga.search.SearchResponse;
-import com.mangacollection.jblg.myapplication.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

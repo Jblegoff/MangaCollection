@@ -9,8 +9,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.mangacollection.jblg.app.R;
 import com.mangacollection.jblg.app.app.models.manga.manga.MangaResponse;
-import com.mangacollection.jblg.myapplication.R;
 import com.squareup.picasso.Picasso;
 
 import butterknife.BindView;

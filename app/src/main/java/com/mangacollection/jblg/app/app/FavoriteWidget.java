@@ -9,7 +9,7 @@ import android.content.SharedPreferences;
 import android.util.Log;
 import android.widget.RemoteViews;
 
-import com.mangacollection.jblg.myapplication.R;
+import com.mangacollection.jblg.app.R;
 
 
 public class FavoriteWidget extends AppWidgetProvider {
