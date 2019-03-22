@@ -125,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
         sharedPreferences = getApplicationContext().getSharedPreferences("LoginData", MODE_PRIVATE);
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken("726138868931-r666fp6jc7ja8jlh6jp95kbj4lo2mem4.apps.googleusercontent.com")
+                .requestIdToken(String.valueOf(R.string.default_web_client_id))
                 .requestEmail()
                 .build();
 
