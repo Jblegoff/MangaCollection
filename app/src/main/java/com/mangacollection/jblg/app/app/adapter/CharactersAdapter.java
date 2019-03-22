@@ -30,6 +30,7 @@ public class CharactersAdapter extends RecyclerView.Adapter<CharactersAdapter.Vi
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.character_item, parent, false);
         ButterKnife.bind(this, itemView);
+
         return new CharactersAdapter.ViewHolder(itemView);
     }
 
@@ -48,7 +49,7 @@ public class CharactersAdapter extends RecyclerView.Adapter<CharactersAdapter.Vi
         return manga.getCharacters().size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    class ViewHolder extends RecyclerView.ViewHolder {
 
         @BindView(R.id.CharacterName)
         TextView characterName;
@@ -57,7 +58,7 @@ public class CharactersAdapter extends RecyclerView.Adapter<CharactersAdapter.Vi
         @BindView(R.id.characterIV)
         ImageView characterIV;
 
-        public ViewHolder(View itemView) {
+        ViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
         }

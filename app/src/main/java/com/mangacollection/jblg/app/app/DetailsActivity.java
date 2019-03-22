@@ -37,6 +37,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -53,7 +54,7 @@ public class DetailsActivity extends AppCompatActivity {
     @BindView(R.id.posterIV)
     ImageView posterIV;
     @BindView(R.id.titleTV)
-    TextView titleB;
+    TextView titleTV;
     @BindView(R.id.numberOfVolumesTV)
     TextView Volumes;
     @BindView(R.id.synopsisTV)
@@ -71,8 +72,7 @@ public class DetailsActivity extends AppCompatActivity {
     private CharactersAdapter charactersAdapter;
     private Parcelable recyclerViewState;
     private DatabaseReference databaseReference;
-    private SharedPreferences sharedPreferences;
-    private List<String> favoriteTitle =new ArrayList<>();
+    private List<String> favoriteTitle = new ArrayList<>();
     private int yellow= Color.YELLOW;
     private int gray = Color.GRAY;
     private String userName;
@@ -104,19 +104,21 @@ public class DetailsActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         ButterKnife.bind(this);
 
-        sharedPreferences= getApplicationContext().getSharedPreferences("Login Data",MODE_PRIVATE);
+        SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("Login Data", MODE_PRIVATE);
         if(savedInstanceState!=null){
             recyclerViewState=savedInstanceState.getParcelable("CHARACTER_LIST_STATE");
             manga=savedInstanceState.getParcelable("MANGA");
         }
 
         navigationDetails.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
         manga=enumForManga.getManga();
-        userName=sharedPreferences.getString("userName",null);
+        userName= sharedPreferences.getString("userName",null);
+
         recyclerView.setLayoutManager(new GridLayoutManager(this,2));
         charactersAdapter = new CharactersAdapter(getApplicationContext(),manga);
         recyclerView.setAdapter(charactersAdapter);
-        recyclerView.getLayoutManager().onRestoreInstanceState(recyclerViewState);
+        Objects.requireNonNull(recyclerView.getLayoutManager()).onRestoreInstanceState(recyclerViewState);
 
         updateUI();
         loadingIndicator.setVisibility(View.INVISIBLE);
@@ -157,16 +159,18 @@ public class DetailsActivity extends AppCompatActivity {
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putParcelable("CHARACTER_LIST_STATE",recyclerView.getLayoutManager().onSaveInstanceState());
+        outState.putParcelable("CHARACTER_LIST_STATE", Objects.requireNonNull(recyclerView.getLayoutManager()).onSaveInstanceState());
         outState.putParcelable("MANGA",manga);
     }
 
     private void updateUI(){
-        titleB.setText(manga.getTitle());
+        titleTV.setText(manga.getTitle());
+
         synopsis.setText((manga.getSynopsis()));
         Volumes.setText(String.valueOf(manga.getVolumes()));
         Picasso.with(getApplicationContext()).load(manga.getImageUrl()).resize(350,450)
-                .placeholder(R.drawable.ic_cloud_download_black_24dp).error(R.drawable.common_full_open_on_phone).into(posterIV);
+                .placeholder(R.drawable.ic_cloud_download_black_24dp)
+                .error(R.drawable.common_full_open_on_phone).into(posterIV);
         charactersAdapter=new CharactersAdapter(getApplicationContext(),manga);
         recyclerView.setAdapter(charactersAdapter);
         queryAndUpdateUI();
@@ -177,7 +181,7 @@ public class DetailsActivity extends AppCompatActivity {
         loadingIndicator.setVisibility(View.VISIBLE);
         call.enqueue(new Callback<MangaResponse>() {
             @Override
-            public void onResponse(Call<MangaResponse> call, Response<MangaResponse> response) {
+            public void onResponse(@NonNull Call<MangaResponse> call,@NonNull Response<MangaResponse> response) {
                 if(response.body()!=null){
                     manga=response.body();
                     enumForManga.setManga(manga);
@@ -190,11 +194,12 @@ public class DetailsActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<MangaResponse> call, Throwable t) {
+            public void onFailure(@NonNull Call<MangaResponse> call,@NonNull Throwable t) {
                 Toast.makeText(getApplication(), getString(R.string.error_on_no_result_from_server), Toast.LENGTH_LONG).show();
             }
         });
     }
+
     @OnClick(R.id.favoriteIBT)
     public void addAndRemoveFavorite(){
         if(userName != null){

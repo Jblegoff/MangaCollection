@@ -4,14 +4,15 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -36,6 +37,7 @@ import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.mangacollection.jblg.app.R;
 import com.mangacollection.jblg.app.app.adapter.TrendingMangaAdapter;
 import com.mangacollection.jblg.app.app.api.MangaAPI;
 import com.mangacollection.jblg.app.app.api.MangaAPIInterface;
@@ -43,8 +45,8 @@ import com.mangacollection.jblg.app.app.models.manga.TempEnumForManga;
 import com.mangacollection.jblg.app.app.models.manga.manga.MangaResponse;
 import com.mangacollection.jblg.app.app.models.manga.search.SearchResponse;
 import com.mangacollection.jblg.app.app.models.manga.trending.TrendingResponse;
-import com.mangacollection.jblg.app.R;
 
+import java.util.Objects;
 import java.util.concurrent.ThreadLocalRandom;
 
 import butterknife.BindView;
@@ -65,8 +67,6 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     @BindView(R.id.navigation)
     BottomNavigationView navigation;
-    @BindView(R.id.toolbar)
-    Toolbar toolbar;
     @BindView(R.id.searchButton)
     Button searchButton;
     @BindView(R.id.searchET)
@@ -89,6 +89,7 @@ public class MainActivity extends AppCompatActivity {
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
+        @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
@@ -120,11 +121,11 @@ public class MainActivity extends AppCompatActivity {
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         recyclerView.setLayoutManager(layoutManager);
-        recyclerView.getLayoutManager().onRestoreInstanceState(recyclerViewState);
+        Objects.requireNonNull(recyclerView.getLayoutManager()).onRestoreInstanceState(recyclerViewState);
         sharedPreferences = getApplicationContext().getSharedPreferences("LoginData", MODE_PRIVATE);
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken("767017325574-o2f2bdivbjqbdsd51dkp0h0kf1j99q36.apps.googleusercontent.com")
+                .requestIdToken("726138868931-r666fp6jc7ja8jlh6jp95kbj4lo2mem4.apps.googleusercontent.com")
                 .requestEmail()
                 .build();
 
@@ -153,7 +154,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putParcelable("TRENDING_LIST_STATE", recyclerView.getLayoutManager().onSaveInstanceState());
+        outState.putParcelable("TRENDING_LIST_STATE", Objects.requireNonNull(recyclerView.getLayoutManager()).onSaveInstanceState());
     }
 
     @Override
@@ -182,6 +183,7 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
 
     private void getRandomManga() {
         int id = ThreadLocalRandom.current().nextInt(1, 1000);
@@ -288,6 +290,7 @@ public class MainActivity extends AppCompatActivity {
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             try {
                 GoogleSignInAccount account = task.getResult(ApiException.class);
+                assert account != null;
                 authWithGoogleThroughFirebase(account);
             } catch (ApiException e) {
                 Log.e("TEST", getString(R.string.error_on_login), e);
@@ -312,6 +315,6 @@ public class MainActivity extends AppCompatActivity {
                             }
                         }
                     });
-             }
+        }
 
     }

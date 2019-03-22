@@ -74,7 +74,7 @@ public class TrendingMangaAdapter extends RecyclerView.Adapter <TrendingMangaAda
             return trendingMangaResponse.getTop().size();
         }
 
-        public class ViewHolder extends RecyclerView.ViewHolder {
+        class ViewHolder extends RecyclerView.ViewHolder {
 
             @BindView(R.id.trendingPosterIV)
             ImageView trendingMangaPosterIV;

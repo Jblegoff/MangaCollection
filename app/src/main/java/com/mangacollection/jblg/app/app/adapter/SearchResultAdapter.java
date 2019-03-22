@@ -65,7 +65,7 @@ public class SearchResultAdapter extends RecyclerView.Adapter<SearchResultAdapte
         return manga.getResult().size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    class ViewHolder extends RecyclerView.ViewHolder {
 
         @BindView(R.id.mangaPosterIV)
         ImageView mangaPosterIV;

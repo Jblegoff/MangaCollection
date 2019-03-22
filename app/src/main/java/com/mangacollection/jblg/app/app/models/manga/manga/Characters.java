@@ -7,6 +7,7 @@ import com.google.gson.annotations.SerializedName;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
+@SuppressWarnings("NullableProblems")
 public class Characters implements Parcelable {
 
     public static final Creator<Characters> CREATOR = new Creator<Characters>() {

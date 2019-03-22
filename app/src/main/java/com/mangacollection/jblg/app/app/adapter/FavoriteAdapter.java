@@ -15,7 +15,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class  FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHolder>  {
-    public List<String> favoriteList;
+    private List<String> favoriteList;
 
     public FavoriteAdapter(List<String> favoriteList){
         this.favoriteList=favoriteList;
@@ -52,12 +52,12 @@ public class  FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewH
         notifyItemRemoved(position);
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    class ViewHolder extends RecyclerView.ViewHolder {
 
         @BindView(R.id.favoriteTitleTV)
         TextView favoriteTitleTV;
 
-        public ViewHolder(View itemView) {
+        ViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
 
