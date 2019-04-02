@@ -2,21 +2,27 @@ package com.mangacollection.jblg.app.app.models.manga.manga;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.support.annotation.NonNull;
 
 import com.google.gson.annotations.SerializedName;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.jetbrains.annotations.Contract;
 
 import java.util.List;
 
 public class MangaResponse implements Parcelable {
     public static final Creator<MangaResponse> CREATOR=new Creator<MangaResponse>() {
+        @NonNull
+        @Contract("_ -> new")
         @Override
         public MangaResponse createFromParcel(Parcel source) {
 
             return new MangaResponse(source);
         }
 
+        @NonNull
+        @Contract(value = "_ -> new", pure = true)
         @Override
         public MangaResponse[] newArray(int size) {
             return new MangaResponse[size];
@@ -68,18 +74,19 @@ public class MangaResponse implements Parcelable {
     private String synopsis;
     @SerializedName("background")
     private String background;
-    @SerializedName("authors")
+    @SerializedName("author")
     private List<Author> authors;
     @SerializedName("genre")
     private List<Genre> genres;
-    @SerializedName("characters")
+    @SerializedName("character")
     private List<Characters> characters;
     @SerializedName("type")
     private String type;
     @SerializedName("Serialization")
     private List<Serialization> serializations;
 
-    private MangaResponse(Parcel in){
+
+    private MangaResponse(@NonNull Parcel in){
         requestHash=in.readString();
         byte tmpRequestCached=in.readByte();
         requestCached=tmpRequestCached==0?null : tmpRequestCached==1;
@@ -145,6 +152,7 @@ public class MangaResponse implements Parcelable {
 
     }
 
+
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(requestHash);
@@ -162,7 +170,7 @@ public class MangaResponse implements Parcelable {
         dest.writeString(imageUrl);
         dest.writeString(type);
         if (volumes==null) {
-            dest.writeInt(0);
+            dest.writeByte((byte) 0);
         }else {
             dest.writeByte((byte)1);
             dest.writeInt(volumes);
@@ -224,6 +232,7 @@ public class MangaResponse implements Parcelable {
         return 0;
     }
 
+    @Contract(pure = true)
     public static Creator<MangaResponse> getCREATOR() {
         return CREATOR;
     }
@@ -421,11 +430,11 @@ public class MangaResponse implements Parcelable {
         this.publishing = publishing;
     }
 
-    public List<Author> getAuthors() {
+    public List<Author> getAuthor() {
         return authors;
     }
 
-    public void setAuthors(List<Author> authors) {
+    public void setAuthor(List<Author> authors) {
         this.authors = authors;
     }
 
@@ -460,22 +469,25 @@ public class MangaResponse implements Parcelable {
     public void setType(String type) {
         this.type = type;
     }
-
+    @NonNull
     @Override
     public String toString() {
         return new ToStringBuilder(this).append("requestHash", requestHash)
-                .append("requestCached", requestCached).append("malId", malId)
-                .append("linkCanonical", linkCanonical).append("title", title)
-                .append("titleEnglish", titleEnglish).append("titleJapanese", titleJapanese)
-                .append("titleSynonyms", titleSynonyms).append("imageUrl", imageUrl)
-                .append("type", type).append("volumes", volumes)
+                .append("requestCached", requestCached)
+                .append("malId", malId).append("linkCanonical", linkCanonical)
+                .append("title", title).append("titleEnglish", titleEnglish)
+                .append("titleJapanese", titleJapanese).append("titleSynonyms", titleSynonyms)
+                .append("imageUrl", imageUrl).append("type", type).append("volumes", volumes)
                 .append("status", status).append("publishing", publishing)
-                .append("publishingString", publishedString).append("published", published)
-                .append("rating", rating).append("score", score).append("scoredBy", scoredBy)
-                .append("rank", rank).append("popularity", popularity).append("members", members)
-                .append("favorites", favorites).append("synopsis", synopsis).append("background", background)
-                .append("genre", genres).append("charactersj", characters)
-                .append("serialization",serializations).append("authors",authors).toString();
+                .append("publishingString", publishedString)
+                .append("published", published).append("rating", rating)
+                .append("score", score).append("scoredBy", scoredBy)
+                .append("rank", rank).append("popularity", popularity)
+                .append("members", members).append("favorites", favorites)
+                .append("synopsis", synopsis).append("background", background)
+                .append("genre", genres).append("character", characters)
+                .append("serialization",serializations)
+                .append("authors",authors).toString();
     }
 
 

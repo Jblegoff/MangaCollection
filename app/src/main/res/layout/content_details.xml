@@ -23,7 +23,7 @@
             android:layout_marginEnd="12dp"
             android:layout_marginStart="45dp"
             android:layout_marginTop="5dp"
-            android:fontFamily="serif"
+            android:fontFamily="sans-serif"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/posterIV"
             app:layout_constraintTop_toBottomOf="@+id/titleLabelTV" />
@@ -34,10 +34,21 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="45dp"
             android:layout_marginTop="5dp"
-            android:fontFamily="serif"
+            android:fontFamily="sans-serif"
             app:layout_constraintStart_toEndOf="@+id/posterIV"
             app:layout_constraintTop_toBottomOf="@+id/volumeNumLabelTV" />
 
+        <TextView
+            android:id="@+id/authorTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:layout_marginStart="45dp"
+            android:layout_marginTop="5dp"
+            android:fontFamily="sans-serif"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/posterIV"
+            app:layout_constraintTop_toBottomOf="@+id/authorLabelTV" />
         <TextView
             android:id="@+id/synopsisTV"
             android:layout_width="match_parent"
@@ -91,7 +102,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="56dp"
             android:fontFamily="sans-serif"
             android:text="@string/synopsisLabel"
             android:textSize="24sp"
@@ -135,30 +146,19 @@
             app:layout_constraintTop_toBottomOf="@+id/numberOfVolumesTV"
             android:layout_marginStart="24dp"
             android:layout_marginTop="8dp"/>
-        <TextView
-            android:id="@+id/authorTV"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:layout_marginEnd="12dp"
-            android:layout_marginStart="45dp"
-            android:layout_marginTop="5dp"
-            android:fontFamily="serif"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/posterIV"
-            app:layout_constraintTop_toBottomOf="@+id/authorLabelTV" />
+
 
         <ImageButton
             android:id="@+id/favoriteIBT"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="4dp"
             android:contentDescription="@string/fav_button_cont_desc"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/synopsisLabelTV"
-            app:layout_constraintTop_toBottomOf="@+id/authorTV"
-            app:srcCompat="@android:drawable/btn_star" />
+            app:layout_constraintTop_toBottomOf="@+id/posterIV"
+            app:layout_constraintBottom_toTopOf="@+id/synopsisLabelTV"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@android:drawable/btn_star"
+            tools:layout_editor_absoluteX="47dp" />
 
 
         <ProgressBar

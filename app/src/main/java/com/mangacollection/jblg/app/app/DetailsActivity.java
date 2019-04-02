@@ -25,12 +25,12 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.mangacollection.jblg.app.R;
 import com.mangacollection.jblg.app.app.adapter.CharactersAdapter;
-import com.mangacollection.jblg.app.app.adapter.DetailsAdapter;
 import com.mangacollection.jblg.app.app.api.MangaAPI;
 import com.mangacollection.jblg.app.app.api.MangaAPIInterface;
 import com.mangacollection.jblg.app.app.models.manga.Favorite;
 import com.mangacollection.jblg.app.app.models.manga.TempEnumForManga;
 import com.mangacollection.jblg.app.app.models.manga.manga.MangaResponse;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -71,7 +71,6 @@ public class DetailsActivity extends AppCompatActivity {
     private TempEnumForManga enumForManga = TempEnumForManga.INSTANCE;
     private MangaResponse manga;
     private CharactersAdapter charactersAdapter;
-    private DetailsAdapter detailsAdapter;
     private Parcelable recyclerViewState;
     private DatabaseReference databaseReference;
     private SharedPreferences sharedPreferences;
@@ -122,13 +121,12 @@ public class DetailsActivity extends AppCompatActivity {
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         manga = enumForManga.getManga();
+        System.out.println(manga);
         userName = sharedPreferences.getString("userName", null);
 
         recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
-        detailsAdapter = new DetailsAdapter(getApplicationContext(),manga);
-        recyclerView.setAdapter(detailsAdapter);
         charactersAdapter = new CharactersAdapter(getApplicationContext(), manga);
-        recyclerView.setAdapter(charactersAdapter);
+       recyclerView.setAdapter(charactersAdapter);
         Objects.requireNonNull(recyclerView.getLayoutManager()).onRestoreInstanceState(recyclerViewState);
 
         updateUI();
@@ -174,8 +172,25 @@ public class DetailsActivity extends AppCompatActivity {
     }
 
     private void updateUI() {
-        detailsAdapter = new DetailsAdapter(getApplicationContext(),manga);
-        recyclerView.setAdapter(detailsAdapter);
+        StringBuilder builder= new StringBuilder();
+        for(int i=0;i<manga.getAuthor().size();i++){
+            builder.append(manga.getAuthor().get(i).getName()).append("\n");
+        }
+        titleTV.setText(manga.getTitle());
+        synopsisTV.setText(manga.getSynopsis());
+        if(manga.getVolumes()==null){
+            numberOfVolumesTV.setText(R.string.unknown);
+        }else {
+            numberOfVolumesTV.setText(String.valueOf(manga.getVolumes()));
+        }
+        authorTV.setText(builder.toString());
+
+
+        Picasso.with(getApplicationContext()).load(manga.getImageUrl())
+                .resize(350,450)
+                .placeholder(R.drawable.ic_cloud_download_black_24dp)
+                .error(R.drawable.common_full_open_on_phone).into(posterIV);
+
         charactersAdapter = new CharactersAdapter(getApplicationContext(), manga);
         recyclerView.setAdapter(charactersAdapter);
         queryAndUpdateUI();

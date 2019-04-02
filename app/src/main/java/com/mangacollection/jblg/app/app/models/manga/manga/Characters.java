@@ -2,18 +2,18 @@ package com.mangacollection.jblg.app.app.models.manga.manga;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.support.annotation.NonNull;
 
 import com.google.gson.annotations.SerializedName;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
-@SuppressWarnings("NullableProblems")
 public class Characters implements Parcelable {
 
     public static final Creator<Characters> CREATOR = new Creator<Characters>() {
         @Override
-        public Characters createFromParcel(Parcel source) {
-            return new Characters(source);
+        public Characters createFromParcel(Parcel in) {
+            return new Characters(in);
         }
 
         @Override
@@ -31,8 +31,6 @@ public class Characters implements Parcelable {
     private String name;
     @SerializedName("role")
     private String role;
-
-
 
     private Characters(Parcel in) {
         imageUrl = in.readString();
@@ -63,17 +61,19 @@ public class Characters implements Parcelable {
         dest.writeString(url);
         dest.writeString(name);
         dest.writeString(role);
-
     }
 
     @Override
     public int describeContents() {
         return 0;
     }
-
+    @NonNull
     @Override
     public String toString() {
-        return new ToStringBuilder(this).append("imageUrl", imageUrl).append("malId", malId).append("url", url).append("name", name).append("role", role).toString();
+        return new ToStringBuilder(this).append("imageUrl", imageUrl)
+                .append("malId", malId)
+                .append("url", url).append("name", name)
+                .append("role", role).toString();
     }
 
     public String getImageUrl() {
@@ -115,6 +115,4 @@ public class Characters implements Parcelable {
     public void setRole(String role) {
         this.role = role;
     }
-
-
 }

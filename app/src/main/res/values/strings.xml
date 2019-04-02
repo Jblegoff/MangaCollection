@@ -49,6 +49,7 @@
     <string name="google_title_text">Google Sign In</string>
     <string name="desc_firebase_lockup"><![CDATA[<string name=\"desc_firebase_lockup\">Firebase logo and name</string>]]></string>
     <string name="author">Author</string>
+    <string name="unknown">Unknown</string>
 
 
 </resources>

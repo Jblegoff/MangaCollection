@@ -38,12 +38,12 @@ public class CharactersAdapter extends RecyclerView.Adapter<CharactersAdapter.Vi
     public void onBindViewHolder(@NonNull CharactersAdapter.ViewHolder holder, int position) {
         holder.characterName.setText(manga.getCharacters().get(position).getName());
         holder.characterRole.setText(manga.getCharacters().get(position).getRole());
+
         Picasso.with(context).load(manga.getCharacters().get(position).getImageUrl().
                 replace("r/46x64/", "")).placeholder(R.drawable.ic_cloud_download_black_24dp)
                 .resize(350, 450).error(R.drawable.ic_error_outline_black_24dp).into(holder.characterIV);
 
     }
-
     @Override
     public int getItemCount() {
         return manga.getCharacters().size();

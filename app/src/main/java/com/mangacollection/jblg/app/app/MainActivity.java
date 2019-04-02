@@ -13,6 +13,7 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -26,9 +27,16 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.GoogleAuthProvider;
 import com.mangacollection.jblg.app.R;
 import com.mangacollection.jblg.app.app.adapter.TrendingMangaAdapter;
 import com.mangacollection.jblg.app.app.api.MangaAPI;
@@ -44,6 +52,7 @@ import java.util.concurrent.ThreadLocalRandom;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.Optional;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -164,7 +173,7 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-   /* @Override
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
@@ -174,7 +183,7 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-    */
+
 
     private void getRandomManga() {
         int id = ThreadLocalRandom.current().nextInt(1, 1000);
@@ -188,6 +197,8 @@ public class MainActivity extends AppCompatActivity {
                     intent = new Intent(getApplicationContext(), DetailsActivity.class);
                     TempEnumForManga enumForManga = TempEnumForManga.INSTANCE;
                     enumForManga.setManga(response.body());
+
+
                     startActivity(intent);
                 } else {
                     Toast.makeText(getApplication(), getString(R.string.error_on_no_result_from_server), Toast.LENGTH_LONG).show();
@@ -257,7 +268,7 @@ public class MainActivity extends AppCompatActivity {
         return (connectivityManager != null) && (connectivityManager.getActiveNetworkInfo() != null);
     }
 
-   /* @Optional
+    @Optional
     @OnClick(R.id.loginField)
     public void signIn(MenuItem item) {
         currentUserName = sharedPreferences.getString("userName", null);
@@ -306,6 +317,6 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
                 });
-    }*/
+    }
 
 }
