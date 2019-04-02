@@ -33,7 +33,7 @@
     <string name="search_hint">Enter title</string>
     <string name="title_go">Go</string>
     <string name="title_search">Search for a manga</string>
-    <string name="manga_poster_cont_desc">Place to sse maga poster</string>
+    <string name="manga_poster_cont_desc">Place to see manga poster</string>
     <string name="character_list_label">Characters List:</string>
     <string name="fav_button_cont_desc">Button to declare manga as favorite</string>
     <string name="synopsisLabel">Synopsis:</string>
@@ -41,7 +41,14 @@
     <string name="titleLabel">Title:</string>
     <string name="details_toolbar_title">Manga details</string>
     <string name="title_trending_default">Most popular Manga:</string>
-
+    <string name="google_status_fmt"> Google User: %s</string>
+    <string name="firebase_status_fmt"> Firebase User: %s</string>/>
+    <string name="signed_out">Signed Out</string>
+    <string name="disconnect">Disconnect</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="google_title_text">Google Sign In</string>
+    <string name="desc_firebase_lockup"><![CDATA[<string name=\"desc_firebase_lockup\">Firebase logo and name</string>]]></string>
+    <string name="author">Author</string>
 
 
 </resources>

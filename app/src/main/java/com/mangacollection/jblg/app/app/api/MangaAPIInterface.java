@@ -11,13 +11,13 @@ import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface MangaAPIInterface {
-    @GET("http://api.jikan.moe/v3/top/manga/1/bypopularity")
+    @GET("http://api.jikan.moe/v3/top/manga/1/")
     Call<TrendingResponse> getTrendingManga();
 
     @GET("http://api.jikan.moe/v3/manga/{malId}/characters")
     Call<MangaResponse> getMangaByID(@Path("malId") int id);
 
-    @GET("http://api.jikan.moe/v3/search/manga")
+    @GET("http://api.jikan.moe/search/manga")
     Call<SearchResponse> searchByMangaTitle(@Query("q") String title);
 
 }

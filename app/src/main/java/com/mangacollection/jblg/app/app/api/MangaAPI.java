@@ -15,7 +15,9 @@ public class MangaAPI {
    public static Retrofit getRetrofit(){
        HttpLoggingInterceptor loggingInterceptor=new HttpLoggingInterceptor();
        loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
-       OkHttpClient client=new OkHttpClient.Builder().connectTimeout(10, TimeUnit.SECONDS).readTimeout(10, TimeUnit.SECONDS).addInterceptor(loggingInterceptor).build();
+       OkHttpClient client=new OkHttpClient.Builder().connectTimeout(10, TimeUnit.SECONDS)
+               .readTimeout(10, TimeUnit.SECONDS).addInterceptor(loggingInterceptor).build();
+
        retrofit=new Retrofit.Builder()
                .baseUrl("https://api.jikan.moe/v3/")
                .addConverterFactory(GsonConverterFactory.create())

@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "726138868931",
-    "firebase_url": "https://manga-collection-1b7cc.firebaseio.com",
-    "project_id": "manga-collection-1b7cc",
-    "storage_bucket": "manga-collection-1b7cc.appspot.com"
+    "project_number": "581462278500",
+    "firebase_url": "https://mangacollection-4b4c1.firebaseio.com",
+    "project_id": "mangacollection-4b4c1",
+    "storage_bucket": "mangacollection-4b4c1.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:726138868931:android:f92bf5feda3a9152",
+        "mobilesdk_app_id": "1:581462278500:android:f92bf5feda3a9152",
         "android_client_info": {
           "package_name": "com.mangacollection.jblg.app"
         }
       },
       "oauth_client": [
         {
-          "client_id": "726138868931-r666fp6jc7ja8jlh6jp95kbj4lo2mem4.apps.googleusercontent.com",
+          "client_id": "581462278500-trgkg08iqfncdepu4l8rpu4753i44n9u.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.mangacollection.jblg.app",
@@ -23,13 +23,13 @@
           }
         },
         {
-          "client_id": "726138868931-gh0radvf8jjgol04ogbjuokmsogsulan.apps.googleusercontent.com",
+          "client_id": "581462278500-n1p7u0inc3gkq65b5b59c4jcqmcht490.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAeF-F8npu1X4pV5ahn4j-oh_z1PjSDkOs"
+          "current_key": "AIzaSyCS1jFBT94soWDCZ5VLwzMLh_0R6gRQg6k"
         }
       ],
       "services": {
@@ -40,7 +40,7 @@
           "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "726138868931-gh0radvf8jjgol04ogbjuokmsogsulan.apps.googleusercontent.com",
+              "client_id": "581462278500-n1p7u0inc3gkq65b5b59c4jcqmcht490.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

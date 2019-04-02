@@ -9,5 +9,7 @@
             android:title="@string/login"
             app:showAsAction="never"
             android:orderInCategory="100"/>
+
     </group>
+
 </menu>

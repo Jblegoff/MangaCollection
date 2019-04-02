@@ -15,8 +15,6 @@ import com.mangacollection.jblg.app.R;
 import com.mangacollection.jblg.app.app.adapter.SearchResultAdapter;
 import com.mangacollection.jblg.app.app.models.manga.search.SearchResponse;
 
-import java.util.Objects;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -52,13 +50,15 @@ public class SearchResultActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         navigationSearch.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener);
+
         if(savedInstanceState!=null){
             recyclerViewState=savedInstanceState.getParcelable("SEARCH_RESULT_LIST_STATE");
         }
-        manga= Objects.requireNonNull(getIntent().getExtras()).getParcelable("SEARCH_RESULT");
+
+        manga= getIntent().getExtras().getParcelable("SEARCH_RESULT");
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
         recyclerView.setLayoutManager(linearLayoutManager);
-        Objects.requireNonNull(recyclerView.getLayoutManager()).onRestoreInstanceState(recyclerViewState);
+        recyclerView.getLayoutManager().onRestoreInstanceState(recyclerViewState);
         searchResultAdapter=new SearchResultAdapter(getApplicationContext(),loading_indicator,manga);
         recyclerView.setAdapter(searchResultAdapter);
     }
@@ -66,6 +66,6 @@ public class SearchResultActivity extends AppCompatActivity {
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putParcelable("SEARCH_RESULT_LIST_STATE", Objects.requireNonNull(recyclerView.getLayoutManager()).onSaveInstanceState());
+        outState.putParcelable("SEARCH_RESULT_LIST_STATE", recyclerView.getLayoutManager().onSaveInstanceState());
     }
 }

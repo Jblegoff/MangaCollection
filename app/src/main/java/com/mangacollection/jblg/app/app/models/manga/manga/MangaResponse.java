@@ -145,7 +145,6 @@ public class MangaResponse implements Parcelable {
 
     }
 
-
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(requestHash);
@@ -163,7 +162,7 @@ public class MangaResponse implements Parcelable {
         dest.writeString(imageUrl);
         dest.writeString(type);
         if (volumes==null) {
-            dest.writeByte((byte) 0);
+            dest.writeInt(0);
         }else {
             dest.writeByte((byte)1);
             dest.writeInt(volumes);
@@ -464,7 +463,19 @@ public class MangaResponse implements Parcelable {
 
     @Override
     public String toString() {
-        return new ToStringBuilder(this).append("requestHash", requestHash).append("requestCached", requestCached).append("malId", malId).append("linkCanonical", linkCanonical).append("title", title).append("titleEnglish", titleEnglish).append("titleJapanese", titleJapanese).append("titleSynonyms", titleSynonyms).append("imageUrl", imageUrl).append("type", type).append("volumes", volumes).append("status", status).append("publishing", publishing).append("publishingString", publishedString).append("published", published).append("rating", rating).append("score", score).append("scoredBy", scoredBy).append("rank", rank).append("popularity", popularity).append("members", members).append("favorites", favorites).append("synopsis", synopsis).append("background", background).append("genre", genres).append("character", characters).append("serialization",serializations).append("authors",authors).toString();
+        return new ToStringBuilder(this).append("requestHash", requestHash)
+                .append("requestCached", requestCached).append("malId", malId)
+                .append("linkCanonical", linkCanonical).append("title", title)
+                .append("titleEnglish", titleEnglish).append("titleJapanese", titleJapanese)
+                .append("titleSynonyms", titleSynonyms).append("imageUrl", imageUrl)
+                .append("type", type).append("volumes", volumes)
+                .append("status", status).append("publishing", publishing)
+                .append("publishingString", publishedString).append("published", published)
+                .append("rating", rating).append("score", score).append("scoredBy", scoredBy)
+                .append("rank", rank).append("popularity", popularity).append("members", members)
+                .append("favorites", favorites).append("synopsis", synopsis).append("background", background)
+                .append("genre", genres).append("charactersj", characters)
+                .append("serialization",serializations).append("authors",authors).toString();
     }
 
 
