@@ -1,5 +1,7 @@
 # MangaCollection
 
+Projet par Jean-Baptiste Le Goff 3A34 
+
 ## Présentation
 Projet de programmation mobile Android utilisant l'architecture MVC 
 Cette application utilise l'APIRest Jikan (https://jikan.docs.apiary.io/#) pour permettre à l'utilisateur de rechercher des manga 
