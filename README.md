@@ -20,7 +20,7 @@ Cette application utilise l'APIRest Jikan (https://jikan.docs.apiary.io/#) pour 
 
 ### Details Screen
 
-<img src="img_demo/details_1.png" atl="details1"> <img src="img_demo/details_2.png" alt="details2">
+<img src="img_demo/details_1.png" atl="details1">  <img src="img_demo/details_2.png" alt="details2">
 
 - recherche de manga par titre
 
